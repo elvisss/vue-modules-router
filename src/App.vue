@@ -1,10 +1,19 @@
-<script setup>
-</script>
-
 <template>
-  <nav>nav</nav>
+  <NavBar />
   <router-view />
 </template>
+
+<script>
+import { defineAsyncComponent } from 'vue'
+
+export default {
+  components: {
+    NavBar: defineAsyncComponent(() =>
+      import('./modules/shared/Components/NavBar.vue')
+    )
+  }
+}
+</script>
 
 <style scoped>
 .logo {
