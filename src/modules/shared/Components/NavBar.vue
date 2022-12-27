@@ -14,13 +14,19 @@ import { defineAsyncComponent } from 'vue'
 
 export default {
   data() {
+    const pokemonLinks = [
+      { to: 'pokemon-home', name: 'Pokemons' },
+      { to: 'pokemon-id', name: 'Pokemon ID', id: 151 },
+      { to: 'pokemon-about', name: 'About' },
+      { to: 'https://www.google.com', name: 'Google' }
+    ]
+    const dbzLinks = [
+      { to: 'dbz-home', name: 'DBZ' },
+      { to: 'dbz-about', name: 'About' },
+      { to: 'https://www.facebook.com', name: 'Facebook' }
+    ]
     return {
-      links: [
-        { to: '/pokemon', name: 'Pokemons' },
-        { to: '/pokemon/pokemon/50', name: 'Pokemon ID' },
-        { to: '/pokemon/about', name: 'About' },
-        { to: 'https://www.google.com', name: 'Google' }
-      ]
+      links: pokemonLinks.concat(dbzLinks)
     }
   },
   components: {

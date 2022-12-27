@@ -36,6 +36,23 @@ const routes = [
     ]
   },
   {
+    path: '/dbz',
+    name: 'dbz',
+    component: () => import('../modules/dbz/layouts/DragonBallLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'dbz-home',
+        component: () => import('../modules/dbz/pages/Characters.vue')
+      },
+      {
+        path: 'about',
+        name: 'dbz-about',
+        component: () => import('../modules/dbz/pages/About.vue')
+      }
+    ]
+  },
+  {
     path: '/:pathMatch(.*)*',
     component: () => import('../modules/shared/pages/NotFoundPage.vue')
   }

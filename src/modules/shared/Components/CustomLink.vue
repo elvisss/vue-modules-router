@@ -6,15 +6,8 @@
     :href="link.to"
     >{{ link.name }}</a
   >
-  <router-link
-    v-else
-    :to="link.to"
-    v-slot="{ href, isExactActive  }"
-  >
-    <a
-      :class="isExactActive  ? 'is-active' : 'normal-link'"
-      :href="href"
-    >
+  <router-link v-else :to="getRoute" v-slot="{ isExactActive }">
+    <a :class="isExactActive ? 'is-active' : 'normal-link'">
       {{ link.name }}
     </a>
   </router-link>
@@ -31,6 +24,11 @@ export default {
   computed: {
     isExternalLink() {
       return this.link.to.startsWith('http')
+    },
+    getRoute() {
+      return this.link.id
+        ? { name: this.link.to, params: { id: this.link.id } }
+        : { name: this.link.to }
     }
   }
 }
